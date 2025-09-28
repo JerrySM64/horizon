@@ -1,5 +1,5 @@
 FROM scratch AS asteroid_core
-COPY files /
+COPY images/asteroid/files /
 
 # Base Image
 FROM ghcr.io/ublue-os/silverblue-main:latest
