@@ -2,7 +2,7 @@ FROM scratch AS asteroid_core
 COPY files /
 
 # Base Image
-FROM ghcr.io/ublue-os/silverblue-main:stable
+FROM ghcr.io/ublue-os/silverblue-main:latest
 
 RUN --mount=type=bind,from=ctx,source=/,target=/asteroid_core \
     --mount=type=cache,dst=/var/cache \

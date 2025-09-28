@@ -1,5 +1,5 @@
 ---
-name: Build Asteroibuild image
+name: Build Asteroidblue image
 on:
   pull_request:
     branches:
