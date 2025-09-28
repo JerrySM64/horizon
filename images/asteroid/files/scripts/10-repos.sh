@@ -26,8 +26,8 @@ enabled=1
 gpgcheck=0
 gpgkey=https://yum.fury.io/nushell/gpg.key" | tee /etc/yum.repos.d/fury-nushell.repo
 
-# Enable the TKG kernel
-dnf copr -y enable whitehara/kernel-tkg-zen2
+# Enable the BLU kernel
+dnf5 -y copr enable sentry/kernel-blu
 
 # Enable Steam repo
 dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-steam.repo

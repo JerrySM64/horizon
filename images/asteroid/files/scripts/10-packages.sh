@@ -15,7 +15,7 @@ dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qe
 dnf5 in -y --setopt=install_weak_deps=False steam gamemode
 
 # Kernel
-rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:whitehara/kernel-tkg-zen2' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
 # Fonts
 dnf5 install -y google-noto-fonts-all
