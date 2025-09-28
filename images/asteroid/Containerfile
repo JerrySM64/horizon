@@ -1,0 +1,19 @@
+FROM scratch AS asteroid_core
+COPY files /
+
+# Base Image
+FROM ghcr.io/ublue-os/silverblue-main:stable
+
+RUN --mount=type=bind,from=ctx,source=/,target=/asteroid_core \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /asteroid_core/10-repos.sh
+
+RUN --mount=type=bind,from=ctx,source=/,target=/asteroid_core \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /asteroid_core/10-packages.sh
+
+RUN bootc container lint
