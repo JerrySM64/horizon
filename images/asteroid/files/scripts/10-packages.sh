@@ -5,6 +5,9 @@ set -ouex pipefail
 # CLI tools
 dnf5 install -y hourglass fastfetch tmate htop btop aria2 distrobox eza bat zoxide git
 
+# Kernel
+rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+
 # Drivers
 dnf5 install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
 
@@ -13,9 +16,6 @@ dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qe
 
 # Gaming!
 dnf5 in -y --setopt=install_weak_deps=False steam gamemode
-
-# Kernel
-rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
 # Fonts
 dnf5 install -y google-noto-fonts-all
