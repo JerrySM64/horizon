@@ -4,11 +4,13 @@ on:
   pull_request:
     branches:
       - main
+      - alx
   schedule:
     - cron: "05 10 * * *" # 10:05am UTC everyday
   push:
     branches:
       - main
+      - alx
     paths-ignore:
       - "**/README.md"
   workflow_dispatch:
