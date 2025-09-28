@@ -12,7 +12,7 @@ dnf5 install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
 dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer libguestfs-tools python3-libguestfs virt-top edk2-ovmf swtpm ptyxis gcolor3 gparted
 
 # Gaming!
-dnt5 in -y --setopt=install_weak_deps=False steam gamemode
+dnf5 in -y --setopt=install_weak_deps=False steam gamemode
 
 # Kernel
 rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:whitehara/kernel-tkg-zen2' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
