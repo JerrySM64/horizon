@@ -11,9 +11,11 @@ dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo
 
+# Starship
+dnf copr -y enable atim/starship 
 
 # Enable home_Alxhr0
-dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:Alxhr0/Fedora_42/home:Alxhr0.repo
+dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:Alxhr0/Fedora_$(rpm -E %fedora)/home:Alxhr0.repo
 
 # Eza
 dnf copr -y enable alternateved/eza 
