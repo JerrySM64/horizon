@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # CLI tools
-dnf5 install -y hourglass fastfetch tmate htop btop aria2 distrobox eza bat zoxide git
+dnf5 install -y hourglass fastfetch tmate htop btop aria2 distrobox eza bat zoxide git starship
 
 # Kernel
 rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
