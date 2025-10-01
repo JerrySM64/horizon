@@ -13,6 +13,8 @@ on:
       - alx
     paths-ignore:
       - "**/README.md"
+      - "**/images/nova"
+      - "**/images/umbra"
   workflow_dispatch:
 
 env:
