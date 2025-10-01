@@ -1,0 +1,20 @@
+# Allow build scripts to be referenced without being copied into the final image
+FROM scratch AS nova
+COPY images/nova/files /
+
+# Base Image
+FROM ghcr.io/ublue-os/base-main:latest
+
+RUN --mount=type=bind,from=nova,source=/,target=/nova \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /nova/scripts/10-repos.sh
+
+RUN --mount=type=bind,from=nova,source=/,target=/nova \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /nova/scripts/10-packages.sh
+    
+RUN bootc container lint
