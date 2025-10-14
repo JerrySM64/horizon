@@ -9,12 +9,18 @@ RUN --mount=type=bind,from=nova,source=/,target=/nova \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /nova/scripts/10-repos.sh
+    /nova/scripts/setup/10-repos.sh
 
 RUN --mount=type=bind,from=nova,source=/,target=/nova \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /nova/scripts/10-packages.sh
+    /nova/scripts/setup/10-packages.sh
     
+RUN --mount=type=bind,from=nova,source=/,target=/nova \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /nova/scripts/final/build-initramfs.sh
+
 RUN bootc container lint
