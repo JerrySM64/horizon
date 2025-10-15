@@ -3,7 +3,7 @@ FROM scratch AS nova
 COPY images/nova/files /
 
 # Base Image
-FROM ghcr.io/ublue-os/base-main:latest
+FROM ghcr.io/ublue-os/aurora:stable
 
 RUN --mount=type=bind,from=nova,source=/,target=/nova \
     --mount=type=cache,dst=/var/cache \
@@ -16,11 +16,5 @@ RUN --mount=type=bind,from=nova,source=/,target=/nova \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /nova/scripts/setup/10-packages.sh
-    
-RUN --mount=type=bind,from=nova,source=/,target=/nova \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    /nova/scripts/final/build-initramfs.sh
 
 RUN bootc container lint
