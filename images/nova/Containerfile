@@ -3,7 +3,7 @@ FROM scratch AS nova
 COPY images/nova/files /
 
 # Base Image
-FROM ghcr.io/ublue-os/aurora:stable
+FROM ghcr.io/ublue-os/aurora-dx:stable
 
 RUN --mount=type=bind,from=nova,source=/,target=/nova \
     --mount=type=cache,dst=/var/cache \
