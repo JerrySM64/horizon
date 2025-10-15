@@ -1,7 +1,7 @@
 [customizations.installer.kickstart]
 contents = """
 %post
-bootc switch --mutate-in-place --transport registry ghcr.io/JerrySM64/nova:latest
+bootc switch --mutate-in-place --transport registry ghcr.io/JerrySM64/aurora-jerry:latest
 %end
 """
 
