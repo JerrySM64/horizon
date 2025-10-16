@@ -1,0 +1,20 @@
+# Allow build scripts to be referenced without being copied into the final image
+FROM scratch AS horizon
+COPY images/horizon/files /
+
+# Base Image
+FROM ghcr.io/ublue-os/main:latest
+
+RUN --mount=type=bind,from=horizon,source=/,target=/horizon \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /horizon/scripts/setup/10-repos.sh
+
+RUN --mount=type=bind,from=horizon,source=/,target=/horizon \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /horizon/scripts/setup/10-packages.sh
+
+RUN bootc container lint
