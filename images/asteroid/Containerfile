@@ -4,8 +4,8 @@ FROM scratch AS asteroid_core
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
 # Copy asteroid_core
-COPY images/asteroid/asteroid_core /
-COPY images/asteroid/asteroid_core/system_files /
+COPY images/asteroid/files /
+COPY images/asteroid/files/system_files /
 
 RUN --mount=type=bind,from=asteroid_core,source=/,target=/asteroid_core \
     --mount=type=cache,dst=/var/cache \
