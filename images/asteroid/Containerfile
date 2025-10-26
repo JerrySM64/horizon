@@ -1,9 +1,10 @@
+FROM scratch AS asteroid_core
+
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
-
 # Copy files
-FROM scratch AS asteroid_core
+
 
 COPY images/asteroid/files /
 
