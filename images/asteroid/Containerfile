@@ -1,6 +1,9 @@
 FROM scratch AS asteroid_core
 COPY images/asteroid/files /
 
+COPY images/asteroid/files/system_files /
+COPY images/asteroid/files/system_files/etc/os-release /etc
+
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
