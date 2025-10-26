@@ -8,7 +8,7 @@ source /usr/share/asteroid/nushell/modules/search.nu
 def custom_prompt [] {
     let user = (whoami)
     let host = (hostname)
-    let path = (if $env.PWD == $nu.home-path { "~" } else if $env.PWD == $"/home/($user)" { "~" } else { $env.PWD | path basename })
+    s
 
     # Colors (ANSI escape codes for 24-bit color)
     let magenta = "\e[35m"
