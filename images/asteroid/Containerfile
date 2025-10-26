@@ -1,40 +1,35 @@
-FROM scratch AS asteroid_core
-
 # Base Image
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
 # Copy files
-
-
-COPY images/asteroid/files /
-
+COPY images/asteroid/files /files
 COPY images/asteroid/files/system_files /
-COPY images/asteroid/files/system_files/etc/os-release /etc
 
-
-RUN --mount=type=bind,from=asteroid_core,source=/,target=/asteroid_core \
+RUN --mount=type=bind,from=tmp/files,source=/,target=/asteroid_core \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /asteroid_core/scripts/setup/10-repos.sh
+    /files/scripts/setup/10-repos.sh
 
-RUN --mount=type=bind,from=asteroid_core,source=/,target=/asteroid_core \
+RUN --mount=type=bind,from=files,source=/,target=/files \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /asteroid_core/scripts/setup/10-packages.sh
+    /files/scripts/setup/10-packages.sh
 
 # Finalize
-#RUN --mount=type=bind,from=asteroid_core,source=/,target=/asteroid_core \
+#RUN --mount=type=bind,from=files,source=/,target=/files \
 #    --mount=type=cache,dst=/var/cache \
 #    --mount=type=cache,dst=/var/log \
 #    --mount=type=tmpfs,dst=/tmp \
-#    /asteroid_core/scripts/final/build-initramfs.sh
+#    /files/scripts/final/build-initramfs.sh
 
-RUN --mount=type=bind,from=asteroid_core,source=/,target=/asteroid_core \
+RUN --mount=type=bind,from=files,source=/,target=/files \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /asteroid_core/scripts/final/clean-up.sh
+    /files/scripts/final/clean-up.sh
+
+RUN rm -r /files
 
 RUN bootc container lint
