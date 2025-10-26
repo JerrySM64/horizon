@@ -21,7 +21,7 @@ dnf5 in -y --setopt=install_weak_deps=False gamemode
 dnf5 install -y google-noto-fonts-all jetbrains-mono-fonts-all
 
 # Misc
-dnfy install -y klassy
+dnf5 install -y klassy
 
 # Remove unused packages
 dnf5 rm -y krfb krfb-libs
