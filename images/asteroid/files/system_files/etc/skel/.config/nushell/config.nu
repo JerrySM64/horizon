@@ -95,8 +95,6 @@ alias clr = clear
 alias gstash = git stash
 alias cat = bat -p --theme=ansi
 alias dbox = distrobox
-#alias hx = helix
-#alias sudo = sudo-rs
 
 def hfetch [] {
   clear ; hyfetch
