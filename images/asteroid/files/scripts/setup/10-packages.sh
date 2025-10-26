@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # CLI tools
-dnf5 install -y hourglass cava fastfetch tmate htop btop aria2 eza bat zoxide starship nushell kf6-servicemenus-imagetools
+dnf5 install -y hourglass cava fastfetch tmate htop btop aria2 eza bat zoxide starship nushell kf6-servicemenus-imagetools fd-find
 
 # Kernel
 #rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
