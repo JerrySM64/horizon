@@ -5,7 +5,7 @@ FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 COPY images/asteroid/files /files
 COPY images/asteroid/files/system_files /
 
-RUN --mount=type=bind,from=tmp/files,source=/,target=/asteroid_core \
+RUN --mount=type=bind,from=files,source=/,target=/asteroid_core \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
