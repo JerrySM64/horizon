@@ -12,7 +12,7 @@ dnf5 install -y hourglass fastfetch tmate htop btop aria2 eza bat zoxide starshi
 #dnf5 install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
 
 # Apps
-dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer libguestfs-tools python3-libguestfs virt-top edk2-ovmf swtpm gparted code merkuro kde-connect
+dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer libguestfs-tools python3-libguestfs virt-top edk2-ovmf swtpm gparted code merkuro
 
 # Gaming!
 dnf5 in -y --setopt=install_weak_deps=False gamemode
@@ -24,4 +24,4 @@ dnf5 install -y google-noto-fonts-all jetbrains-mono-fonts-all
 dnf5 install -y klassy
 
 # Remove unused packages
-dnf5 rm -y krfb krfb-libs kde-connect kde-connect-libs kfind filelight sunshine
+dnf5 rm -y krfb krfb-libs kfind filelight sunshine
