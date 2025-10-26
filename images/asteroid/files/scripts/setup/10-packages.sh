@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 # CLI tools
-dnf5 install -y hourglass fastfetch tmate htop btop aria2 eza bat zoxide starship nushell kf6-servicemenus-imagetools
+dnf5 install -y hourglass cava fastfetch tmate htop btop aria2 eza bat zoxide starship nushell kf6-servicemenus-imagetools
 
 # Kernel
 #rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
@@ -24,4 +24,4 @@ dnf5 install -y google-noto-fonts-all jetbrains-mono-fonts-all
 dnf5 install -y klassy
 
 # Remove unused packages
-dnf5 rm -y krfb krfb-libs
+dnf5 rm -y krfb krfb-libs kde-connect kde-connect-libs kfind filelight sunshine
