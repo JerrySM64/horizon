@@ -4,8 +4,7 @@ FROM scratch AS files
 FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
 
 # Copy files
-
-COPY images/asteroid/files /files
+COPY images/asteroid/files /
 COPY images/asteroid/files/system_files /
 
 RUN --mount=type=bind,from=files,source=/,target=/files \
@@ -32,7 +31,5 @@ RUN --mount=type=bind,from=files,source=/,target=/files \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /files/scripts/final/clean-up.sh
-
-RUN rm -r /files
 
 RUN bootc container lint
