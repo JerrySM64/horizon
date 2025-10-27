@@ -8,7 +8,8 @@ source /usr/share/asteroid/nushell/modules/search.nu
 def custom_prompt [] {
     let user = (whoami)
     let host = (hostname)
-    s
+    let path = (if $env.PWD == $nu.home-path { "~" } else if $env.PWD == $"/home/($user)" { "~" } else if $env.PWD == $"/var/home/($user)" { "~" } else if $env.PWD == "/" { "/" }  else { $env.PWD | path basename })
+
 
     # Colors (ANSI escape codes for 24-bit color)
     let magenta = "\e[35m"
@@ -30,18 +31,18 @@ $env.PROMPT_COMMAND_RIGHT = ""
 
 # Hooks
 $env.config = {
-             hooks: {
-               pre_prompt: [{ ||
-               if (which direnv | is-empty) {
-                 return
-               }
+  hooks: {
+    pre_prompt: [{ ||
+      if (which direnv | is-empty) {
+        return
+      }
 
-               direnv export json | from json | default {} | load-env
-               if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
-                 $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
-               }
-             }]
-           }
+      direnv export json | from json | default {} | load-env
+      if 'ENV_CONVERSIONS' in $env and 'PATH' in $env.ENV_CONVERSIONS {
+        $env.PATH = do $env.ENV_CONVERSIONS.PATH.from_string $env.PATH
+      }
+    }]
+  }
 }
 
 # Goofy messages :P
