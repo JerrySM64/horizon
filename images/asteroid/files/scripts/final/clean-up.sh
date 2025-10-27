@@ -4,6 +4,8 @@ echo "::group:: ===$(basename "$0")==="
 
 set -eoux pipefail
 
+gtk-update-icon-cache
+
 rm -rf /tmp/* || true
 rm -rf /tmp/* || true
 find /var/* -maxdepth 0 -type d \! -name cache -exec rm -fr {} \;
