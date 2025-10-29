@@ -14,6 +14,9 @@ dnf5 install -y hourglass fastfetch tmate htop btop aria2 eza bat zoxide starshi
 # Apps
 dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer libguestfs-tools python3-libguestfs virt-top edk2-ovmf swtpm gparted code merkuro
 
+## VirtualBox
+dnf5 install -y https://download.virtualbox.org/virtualbox/7.2.4/VirtualBox-7.2-7.2.4_170995_fedora40-1.x86_64.rpm
+
 # Gaming!
 dnf5 in -y --setopt=install_weak_deps=False gamemode
 
