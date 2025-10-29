@@ -8,7 +8,7 @@ dnf5 install -y hourglass fastfetch tmate htop btop aria2 eza bat zoxide starshi
 echo "Installing Nushell.."
 wget https://github.com/nushell/nushell/releases/download/0.108.0/nu-0.108.0-x86_64-unknown-linux-gnu.tar.gz -P /tmp
 
-tar -xvf /tmp/nu-0.108.0-x86_64-unknown-linux-gnu.tar.gz -C /tmp/nu-0.108.0-x86_64-unknown-linux-gnu
+tar -xvf /tmp/nu-0.108.0-x86_64-unknown-linux-gnu.tar.gz -C /tmp
 
 cp -v /tmp/nu-0.108.0-x86_64-unknown-linux-gnu/nu /usr/bin/nu
 for nu_plugin in nu_plugin_formats nu_plugin_gstat nu_plugin_inc nu_plugin_polars nu_plugin_query; do cp -v /tmp/nu-0.108.0-x86_64-unknown-linux-gnu/$nu_plugin /usr/libexec/nushell/$nu_plugin; done
