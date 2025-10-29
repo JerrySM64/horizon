@@ -22,12 +22,12 @@ dnf config-manager addrepo --from-repofile=https://download.opensuse.org/reposit
 dnf copr -y enable alternateved/eza 
 
 # Nushell
-echo "[gemfury-nushell]
-name=Gemfury Nushell Repo
-baseurl=https://yum.fury.io/nushell/
-enabled=1
-gpgcheck=0
-gpgkey=https://yum.fury.io/nushell/gpg.key" | tee /etc/yum.repos.d/fury-nushell.repo
+# echo "[gemfury-nushell]
+# name=Gemfury Nushell Repo
+# baseurl=https://yum.fury.io/nushell/
+# enabled=1
+# gpgcheck=0
+# gpgkey=https://yum.fury.io/nushell/gpg.key" | tee /etc/yum.repos.d/fury-nushell.repo
 
 # Enable the BLU kernel
 #dnf5 -y copr enable sentry/kernel-blu
