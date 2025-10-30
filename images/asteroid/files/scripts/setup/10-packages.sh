@@ -20,7 +20,7 @@ systemctl enable nushell-post-inst
 
 # Drivers
 #dnf5 install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
-.
+
 # Apps
 dnf5 install -y virt-install libvirt-daemon-config-network libvirt-daemon-kvm qemu-kvm virt-manager virt-viewer libguestfs-tools python3-libguestfs virt-top edk2-ovmf swtpm gparted code merkuro
 
