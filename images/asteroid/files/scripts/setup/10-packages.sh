@@ -13,6 +13,8 @@ tar -xvf /tmp/nu-0.108.0-x86_64-unknown-linux-gnu.tar.gz -C /tmp
 cp -v /tmp/nu-0.108.0-x86_64-unknown-linux-gnu/nu /usr/bin/nu
 for nu_plugin in nu_plugin_formats nu_plugin_gstat nu_plugin_inc nu_plugin_polars nu_plugin_query; do cp -v /tmp/nu-0.108.0-x86_64-unknown-linux-gnu/$nu_plugin /usr/libexec/nushell/$nu_plugin; done
 
+systemctl enable nushell-post-inst
+
 # Kernel
 #rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-blu' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
 
@@ -33,6 +35,8 @@ dnf5 install -y google-noto-fonts-all jetbrains-mono-fonts-all
 
 # Misc NOTE: Uncomment after home_paul4us supports F43
 #dnf5 install -y klassy
+
+dnf5 in -y papirus-icon-theme
 
 # Remove unused packages
 dnf5 rm -y krfb krfb-libs kfind filelight sunshine
